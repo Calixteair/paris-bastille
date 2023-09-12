@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris-bastille</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link  type="text/css" rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="headtop">
+        <div class="info">
+            <h1>Studio Paris Bastille</h1>
+            <h3 class="surface">30m²</h3>
+        </div>
+      
+      <div class="titleimg">
+        <img class="vuejour"   src="vuejour.jpg" alt="photo de la vue en journée">
+        <img class="vuenuit"   src="vuenuit.jpg" alt="photo de la vue en journée">
+      </div>
+    </div>
+    <div class="description">
+        <div class="spandesc">
+            Appartement tout équipé pour maximum 4 personnes.<br>Situé au 8ème étage avec ascenseur,<br>Terrasse avec vue sur la tour de l'horloge de la gare de Lyon.<br>
+            Environement calme, espace lumineux<br>Idéalement situé pour (re)découvrir Paris.
+        </div>
+
+        <div id="map"></div>
+        <div class="parts">
+            <div class="partone">
+                <div class="tiltediv"><h2 class="tilepart">Localisation</h2></div>
+                <div class="table">
+                        <div class="texttrajet" id="tt1"><img class="imgtrajet" src="walk.png" alt="">8mn </div>
+                        <div class="texttrajet" id="tt2"><img class="imgtrajet" src="walk.png" alt="">8mn </div> 
+                        <div class="texttrajet" id="tt3"><img class="imgtrajet" src="walk.png" alt="">24mn </div> 
+                        <div class="texttrajet" id="tt4"><img class="imgtrajet" src="walk.png" alt="">2mn </div>
+                        <div class="texttrajet" id="tt5"><img class="imgtrajet" src="walk.png" alt="">8mn </div>                
+                        <div class="lieux" id="l1"><img class="imglieux" src="ptnoir.png" alt="">Gare de Lyon</div>
+                        <div  class="lieux" id="l2"><img class="imglieux" src="ptnoir.png" alt="">Place de la Bastille</div> 
+                        <div class="lieux" id="l3"><img class="imglieux" src="ptnoir.png" alt="">Notre Dame de Paris</div> 
+                        <div class="lieux" id="l4"><img class="imglieux" src="Metro.png" alt=""><img class="imglieux" src="Metro_5.png" alt=""> Ligne 5 Quai de la Rapée</div>
+                        <div class="lieux" id="l5"><img class="imglieux" src="RER.png" alt=""> RER A Gare de Lyon</div> 
+                </div>
+            </div>
+
+            <div class="parttwo">
+                <div class="tiltediv"><h2 class="tilepart">Le studio</h2></div>
+                    <div class="table2">
+                        <div class="studiotxt">Petite entrée</div>
+                        <div class="studiotxt">Salon avec une méridienne et 2 Poufs</div>
+                        <div class="studiotxt">Grande salle de bains avec lavabo douche et WC</div>
+                        <div class="studiotxt">Cuisine équipée</div>
+                        <div class="studiotxt">Balcon terrasse sur cour</div>
+                    </div>
+
+            </div>
+            <div class="partthree">
+                <div class="tiltediv"><h2 class="tilepart">Les équipements</h2></div>
+                
+
+
+
+
+
+
+
+
+
+                <div class="table3">
+                    <div class="equiptxt">Machine à café Nespresso</div>
+                    <div class="equiptxt">Four / micro-onde</div>
+                    <div class="equiptxt">2 plaques à induction</div>
+                    <div class="equiptxt">Réfrigérateur avec freezer</div>
+                    <div class="equiptxt">Lave-linge / Sèche-linge</div>
+                    <div class="equiptxt">Sèche-cheveux</div>
+                    <div class="equiptxt">Aspirateur</div>
+                    <div class="equiptxt">Vaisselle pour 4</div>
+                    <div class="equiptxt">Linge de lit fourni</div>
+                    <div class="equiptxt">Linge de toilette fourni</div>
+                    <div class="equiptxt">Fer à repasser</div>
+                </div>
+            </div>
+
+        </div>
+
+        
+        <script>
+            // Coordonnées de l'emplacement de l'appartement (par exemple)
+            var apartmentLocation = [48.847615, 2.3676364]; // Lat, Lon
+        
+            // Initialisation de la carte
+            var map = L.map('map').setView(apartmentLocation, 15); // Le zoom peut être ajusté
+        
+            // Ajout du calque de tuiles OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+        
+            // Ajout d'un marqueur pour l'emplacement de l'appartement
+            L.marker(apartmentLocation).addTo(map)
+                .bindPopup('Emplacement de l\'appartement')
+                .openPopup();
+        </script>
+
+        <div class="infosup">
+            <div class="deuxinfo"> <h2>Les couchages :</h2></div>
+            <div class="infosup2">Lit armoire de 140×210 - 2 personnes</div>
+            <div class="infosup2">Méridienne transformable en lit de 90×200 - 1 personne</div>
+            <div class="infosup2">Pouf carré transformable en lit d’appoint de 70×200 - 1 personne</div>
+        </div>
+
+
+        <div class="image-grid">
+            <div class="row">
+              <img src="image1.jpg" alt="Image 1">
+              <img src="image2.jpg" alt="Image 2">
+              <img src="image3.jpg" alt="Image 3">
+            </div>
+            <div class="row">
+              <img src="image4.jpg" alt="Image 4">
+              <img src="image5.jpg" alt="Image 5">
+              <img src="image6.jpg" alt="Image 6">
+            </div>
+            
+        </div>
+
+        <div class="infoend">
+            <h3 class="resizet3">! Pas de téléviseur – pas de wifi !</h3>
+            <h3 class="resizet3">Appartement non fumeur - Animaux non acceptés</h3>
+        </div>
+    </div>
+
+    <div class="contact">
+        <p class="p">
+          Réservation - disponibilités - informations :
+          <span class="phone-number">+33 (0)6 70 10 49 93</span>
+        </p>
+      </div>
+
+      
+        <h1 class="tarif">Tarifs</h1>
+      <div class="tarifs-liste">
+          <div class="tarifs-titre n1">1 nuit</div>
+          <div class="tarifs-prix p1">130€</div>
+          <div class="tarifs-titre n2">2 nuits</div>
+          <div class="tarifs-prix p2">240€</div>
+          <div class="tarifs-titre n3">3 nuits</div>
+          <div class="tarifs-prix p3">330€</div>
+          <div class="tarifs-titre n4">4 nuits</div>
+          <div class="tarifs-prix p4">400€</div>
+
+      </div>
+      
+
+    
+</body>
+</html>
